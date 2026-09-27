@@ -17,10 +17,25 @@ server, the database, the UI) only ever sees what this code produces:
 ciphertext and wrapped keys, never plaintext, never a usable key.
 
 Three implementations are included, one per client, kept in sync by hand and
-tested to interoperate byte-for-byte:
-- `js/ac_crypto.js` — the browser dashboard (Web Crypto API)
-- `dart/ac_crypto.dart` — the Android/desktop app (`package:cryptography`)
-- `python/crypto.py` — the official Python SDK (`cryptography` package)
+**verified to interoperate byte-for-byte** against a shared set of test
+vectors — not just claimed to:
+- `js/ac_crypto.js` — the browser dashboard (Web Crypto API), + `example.js`
+- `dart/ac_crypto.dart` — the Android/desktop app (`package:cryptography`), + `example.dart`
+- `python/crypto.py` — the official Python SDK (`cryptography` package), + `example.py`
+
+`test-vectors.json` at the repo root holds a fixed key/nonce/plaintext (for
+AES-256-GCM), a fixed password/salt (for PBKDF2), and fixed keypairs (for the
+X25519+HKDF sharing derivation). Each language's `example.*` file loads its
+own production module and checks it against these same vectors — run any of
+them yourself:
+
+```bash
+node js/example.js                                   # requires Node 19+
+python python/example.py                              # requires: pip install cryptography
+cd dart && dart pub get && dart run example.dart      # requires the Dart SDK
+```
+
+All three currently print `PASS` for every check.
 
 ## How it actually works
 

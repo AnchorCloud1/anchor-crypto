@@ -1,0 +1,25 @@
+{
+  "aes_gcm_decrypt": {
+    "description": "Fixed key/IV/ciphertext -- each language must decrypt this to the exact plaintext shown.",
+    "key_b64": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+    "iv_b64": "ZGVmZ2hpamtsbW5v",
+    "ciphertext_b64": "CXW9Dhabdt1SDSqM+gsPiyewJnnuCYBS07nFO9WsZOm3c64upHKbBiY7iLUJ",
+    "expected_plaintext": "Anchor Cloud never sees this."
+  },
+  "pbkdf2": {
+    "description": "Fixed password/salt/iterations -- each language must derive this exact master key.",
+    "password": "correct horse battery staple",
+    "salt_b64": "AAMGCQwPEhUYGx4hJCcqLQ==",
+    "iterations": 210000,
+    "expected_key_b64": "JajyM3LUIqyWW2ScInJIJrja+kCEAXXxv6D8/xZOceY="
+  },
+  "x25519_hkdf": {
+    "description": "Fixed X25519 keypairs -- each language must derive this exact shared AES key via ECDH+HKDF.",
+    "alice_private_b64": "cEK1yyZmdhiAGbEcreZVYy2VNiJf2h9YDGW052qzWno=",
+    "alice_public_b64": "MxIjDmCLPpMxZSLA7f5XOLt5jODPaeS6mS66yN2GWgc=",
+    "bob_private_b64": "CFcWHbnbmUvv5yjf+didcDiP7nVk3BJLx9y4PQaAfVA=",
+    "bob_public_b64": "Rh1aNM3Yl8I5IjjqmLqABBrMf6FsuXVoYkFjZhHa9SY=",
+    "hkdf_info": "anchorcloud-file-share-v1",
+    "expected_derived_key_b64": "UYln2cnF/irHTmZsRTphC6WPhhQnV3jssfdwuJhvq1Q="
+  }
+}

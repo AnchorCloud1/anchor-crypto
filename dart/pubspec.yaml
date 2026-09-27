@@ -1,0 +1,7 @@
+name: anchor_crypto_example
+description: Standalone Dart example/test harness for ac_crypto.dart (no Flutter needed).
+publish_to: 'none'
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+dependencies:
+  cryptography: ^2.7.0
